@@ -1,0 +1,214 @@
+#channels_list li {
+    display:inline-block;
+    text-align: center;
+    padding-right: 40px;
+    padding-bottom: 20px;
+    list-style-type: none;
+
+
+}
+
+
+.margin_divs {
+
+    text-align: center;
+    margin-bottom: 15px;
+
+
+}
+
+#delete_button {
+
+
+    width: 45px;
+    height: 20px;
+    font-size: x-small;
+}
+
+
+.SMS {
+    text-align: center;
+    height: auto;
+
+
+}
+
+.col-100 {
+
+    width: 50%;
+    margin-top: 6px;
+
+
+
+}
+
+#edit_channel {
+
+font-size:x-large;
+font-weight: bold;
+    
+}
+
+#channels_div {
+
+    display: inline-block;
+    overflow-y: scroll;
+    max-width: 1300px;
+
+}
+
+
+.message_holder {
+
+    width: 100%;
+    border: 1px solid #ddd;
+    background: #f1f1f1;
+    overflow-y: scroll;
+
+}
+
+
+/* making site responsive */
+@media (min-width: 1200px) {
+
+
+    .message_holder {
+
+        height: 700px;
+        
+    }
+
+    #channels_div {
+
+        max-height: 700px;
+    }
+
+}
+
+/* for ipad pro */
+
+@media (min-width: 900px) and (max-width: 1199px) and  (min-height: 1300px) {
+
+
+    .message_holder {
+
+        height: 950px;
+         
+    }
+
+    #channels_div {
+
+        max-height: 950px;
+    }
+
+
+} 
+
+
+@media (min-width: 500px) and (max-width: 899px) {
+
+
+    .message_holder {
+
+        height: 600px;
+         
+    }
+
+    #channels_div {
+
+        max-height: 600px;
+    }
+
+
+} 
+
+
+@media (min-height: 851px) and (max-height: 1000px) {
+
+
+    .message_holder {
+
+        height: 550px;
+        
+    }
+
+    #channels_div {
+
+        max-height: 550px;
+    }
+
+
+}
+
+
+
+
+@media (min-height: 800px) and (max-height: 850px) {
+
+
+    .message_holder {
+
+        height: 500px;
+        
+    }
+
+    #channels_div {
+
+        max-height: 500px;
+    }
+
+
+}
+
+
+
+@media (min-height: 700px) and (max-height: 800px) {
+
+
+    .message_holder {
+
+        height: 400px;
+        
+    }
+
+    #channels_div {
+
+        max-height: 400px;
+    }
+
+
+}
+
+
+@media  (min-height: 600px) and (max-height: 699px){
+
+
+    .message_holder {
+
+        height: 300px;
+        
+    }
+    #channels_div {
+
+        max-height: 300px;
+    }
+
+
+}
+
+@media  (max-height: 599px){
+
+
+    .message_holder {
+
+        height: 250px;
+        
+    }
+
+    #channels_div {
+
+        max-height: 250px;
+    }
+
+
+}

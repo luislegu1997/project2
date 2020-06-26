@@ -1,0 +1,104 @@
+{% extends "layout.html" %}
+
+{% block script %}
+
+<script>
+
+//if user delete sms update server channel messages 
+   function delete_message(msg_number) {    
+
+     socket.emit('delete_sms', {
+
+            sms_delition :  msg_number,
+
+            channel : localStorage.getItem('channel'),
+
+      })
+
+    }
+    
+</script>
+
+
+{% endblock %}
+
+
+{% block title %}
+
+Chat
+
+{% endblock %}
+
+
+{% block main %}
+
+<div class="container" style="text-align: center;"> 
+
+  <div class="row">
+
+    <div class="col"> 
+
+      <div class="current_channel margin_divs"><span id="edit_channel">{{channel}}</span></div>
+
+      <a href="{{url_for('delete_channel', channel = channel)}}">Delete channel</a>
+
+    </div>
+      
+  </div> 
+
+  <div class="row">
+
+    <div class="col"> 
+
+      <center> 
+
+        <div id="scrollable" class="message_holder">
+            
+          {% for sms in messages %}
+          
+            <div class ="SMS" id= '{{sms.sms_number}}'>
+
+              <div><b style="color: #ff2e2e">{{sms.time_stamp}} </b><b style="color: #2758fa">{{sms.user}} </b>  {{sms.message}}</div>
+              <button  id= "delete_button" class="btn-secondary"  onclick="delete_message('{{sms.sms_number}}')">Delete</button>
+
+            </div>
+
+          {% endfor %}
+
+        </div>
+
+      </center>
+
+    </div>  
+
+  </div>
+
+</div>
+
+  
+
+<div class= "container margin_divs" style= "margin-top: 20px;" > 
+
+  <center> 
+    <form>
+
+      <div class="form-group">
+          <input style="max-width: 200px;" id= "SMS" type="text" autocomplete="off" autofocus class="form-control message" placeholder="message"/>
+      </div>
+
+      <button class="btn btn-primary" id="submit" type="submit">Send</button>
+
+    </form>
+  </center>
+
+</div>
+
+    
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.7.3/socket.io.min.js"></script>
+  <script src="{{ url_for('static', filename='channel_chat.js') }}"></script>
+
+
+{% endblock %}
+

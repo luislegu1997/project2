@@ -1,0 +1,86 @@
+{% extends "layout.html" %}
+
+{% block script %}
+
+<script> 
+
+  if (!localStorage.getItem('user')){ 
+
+    alert("You need to log in first")
+
+    window.location = Flask.url_for('index') 
+  }
+
+</script>
+
+{% endblock %}
+
+
+{% block title %}
+
+Channels
+
+{% endblock %}
+
+
+{% block main %}
+
+    <div class= "lst_channels" value= '{{channels_lst_1}}'> </div>
+
+  {% if channels_lst_1 %}
+  
+	
+    <div class = "container margin_divs" id= "display_if_channel">Select Channel</div>
+  
+
+  {% else %}
+
+    <div class = "container margin_divs" id= "display_if_not_channel"></div>
+
+  {% endif %}
+
+  <center> 
+
+    <div id="channels_div"> 
+
+      <ul id = "channels_list" >
+    
+        {% for channel in channels_lst_1 %}
+ 
+          <li> <a href="{{ url_for('channels', channel = channel) }}">{{channel}}</a></li>
+        
+        {% endfor %}  
+          
+      </ul>
+    
+    </div>
+
+  </center>
+
+    
+  <div class= "container margin_divs" style="margin-top: 30px;">Create a new channel <span id ="user"></span></div>
+ 
+  <div class= "container margin_divs" style= "width: 220px" > 
+   
+    <form>
+
+      <div class="form-group">
+
+        <input id= "channel" type="text" autocomplete="off" autofocus class="form-control channel" placeholder="Channel"/>
+        
+      </div>
+
+      <button id="submit" class="btn btn-primary" type="submit">Create</button>
+
+    </form>
+  
+  </div>
+
+ 
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.7.3/socket.io.min.js"></script>
+  <script src="{{ url_for('static', filename='channel_creation.js') }}"></script>
+
+
+{% endblock %}

@@ -1,0 +1,50 @@
+{% extends "layout.html" %}
+
+{% block script %}
+
+<script type="text/javascript">
+
+	if (localStorage.getItem('user')) {
+
+		if (localStorage.getItem('channel')) {
+
+			window.location = Flask.url_for('channels', {'channel' : localStorage.getItem('channel') });
+
+		}
+
+		else
+		
+			window.location = Flask.url_for('channel_creation')
+	}
+		
+
+		
+</script>
+
+{% endblock %}
+
+
+{% block title %}
+  Log in
+{% endblock %}
+
+
+{% block main %}
+
+	<div class= "container" id = "enter_name" style= "width: 220px" >
+	      <center>
+	        <h5>Enter User</h5>
+	            <form action="/" method="post">
+	              <div class="form-group">
+	                  <input autocomplete="off" autofocus class="form-control" name="name" placeholder="name" type="text">
+	              </div>
+	              <button class="btn btn-primary" type="submit">Log in</button>
+	            </form>
+	      </center>
+	  </div>
+
+
+  <script src="{{ url_for('static', filename='index.js') }}"> </script>
+
+{% endblock %}
+
